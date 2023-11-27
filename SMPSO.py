@@ -41,7 +41,7 @@ if __name__ == '__main__':
     # use single objective functions from optproblems.cec2005
     nexec = 10
     # for all wanted dimensions
-    dims = [2, 10, 20, 50, 100, 200] # 2,10,30,50 are common for all cec functions
+    dims = [2,10,30,50] # 2,10,30,50 are common for all cec functions
     Xovers = [SBX(),SPX()] # TO BE COMPLETED
     Mutations = [PM(),UM()] #all possible Mutations #TO BE COMPLETED
     # build a list of problems for all dimensions
@@ -79,7 +79,7 @@ if __name__ == '__main__':
 
     #save dataframe to csv file
     os.chdir("./")
-    bestFitness.to_csv('SMPSO_experiment_%d_runs_dim_%d.csv' % (nexec,dims[0]))
+    bestFitness.to_csv('SMPSO_experiment_%d_runs_dim_%s.csv' % (nexec,'_'.join(map(str, dims))))
     # print dataframe statistics
     print(bestFitness.describe())
     # reverse MultiIndex levels, bestFitness['Algortihm']['Problem'] -> bestFitness['Problem']['Algortihm']
